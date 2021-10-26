@@ -13,6 +13,7 @@ while str(inputY) == "Y":
         goal = float(input("Enter the Goal Amount: "))
         pay = float(input("Enter the Payment Amount: "))
         hours = float(input("Enter the Hours per week: "))
+        savings = float(input("Enter the Savings Amount: "))
     except ValueError:
         print("Use the correct values!")
         sys.exit()
@@ -21,7 +22,7 @@ while str(inputY) == "Y":
 
     # calculating the time elapsed for goal to be reached
 
-    timeElapsed = goal / ((pay * hours) / 7)
+    timeElapsed = (goal - savings) / ((pay * hours) / 7)
 
     # taking input as the date
     # Begindatestring = "YYYY-MM-DD"
