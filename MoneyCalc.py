@@ -1,8 +1,8 @@
 from datetime import datetime
 from datetime import timedelta
-
-import math
 import sys
+
+# Initializing while loop to repeat the operation until user decides to quit.
 
 inputY = "Y"
 
@@ -10,34 +10,37 @@ while str(inputY) == "Y":
     try:
         print("")
         Begindatestring = str(input("Enter date as YYYY-MM-DD: "))
-        g = float(input("Enter the Goal Amount: "))
-        p = float(input("Enter the Payment Amount: "))
-        h = float(input("Enter the Hours per week: "))
+        goal = float(input("Enter the Goal Amount: "))
+        pay = float(input("Enter the Payment Amount: "))
+        hours = float(input("Enter the Hours per week: "))
     except ValueError:
         print("Use the correct values!")
         sys.exit()
 
     print("")
 
-    value = g / ((p * h) / 7)
+    # calculating the time elapsed for goal to be reached
+
+    timeElapsed = goal / ((pay * hours) / 7)
 
     # taking input as the date
-    #Begindatestring = "2020-10-11"
+    # Begindatestring = "YYYY-MM-DD"
 
     # carry out conversion between string
     # to datetime object
-    Begindate = datetime.strptime(Begindatestring, "%Y-%m-%d")
+    BeginDate = datetime.strptime(Begindatestring, "%Y-%m-%d")
 
     # print begin date
-    #print("Beginning date")
-    #print(Begindate)
+    print("Start Date")
+    print(BeginDate)
+    print("----------")
 
     # calculating end date by adding 10 days
-    Enddate = Begindate + timedelta(days=value)
+    EndDate = BeginDate + timedelta(days=timeElapsed)
 
     # printing end date
     print("Estimated Date")
-    print(Enddate)
+    print(EndDate)
     print("")
 
     inputY = (input("Try again? <Y/N>: ").upper())[0]
